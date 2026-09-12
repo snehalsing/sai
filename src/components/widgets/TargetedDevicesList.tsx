@@ -39,8 +39,8 @@ export const TargetedDevicesList: React.FC<TargetedDevicesListProps> = ({ device
         </span>
       </div>
 
-      {/* Middle Scrollable Container: Stacks from top down */}
-      <div className="flex-1 flex flex-col justify-start gap-3 overflow-y-auto py-4 min-h-0 pr-1">
+      {/* Middle Scrollable Container: Stacks from top down with custom scrollbar */}
+      <div className="flex-1 flex flex-col justify-start gap-3 overflow-y-auto py-4 min-h-0 pr-2 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
         {devices.map((device) => {
           const isCritical = device.status === 'Critical';
           const isWarning = device.status === 'Warning';
