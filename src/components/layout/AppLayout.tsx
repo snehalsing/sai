@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { usePathname } from 'next/navigation';
 import { Sidebar } from './Sidebar';
 import { TopBar } from './TopBar';
 
@@ -9,9 +10,15 @@ interface AppLayoutProps {
 }
 
 export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
+  const pathname = usePathname();
   const [currentTab, setCurrentTab] = useState('Overview');
   const [searchValue, setSearchValue] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Full-screen layout for authentication pages
+  if (pathname === '/sign-in' || pathname === '/sign-out') {
+    return <>{children}</>;
+  }
 
   return (
     <div className="flex h-screen w-full overflow-hidden bg-[#F9FAFB] dark:bg-[#0B0F19] text-[#111827] dark:text-white transition-colors duration-200">

@@ -200,13 +200,14 @@ export const TopBar: React.FC<TopBarProps> = ({
                 <span>SOC Preferences</span>
               </Link>
               <div className="my-1 border-t border-gray-200 dark:border-white/10" />
-              <button
+              <Link
+                href="/sign-out"
                 onClick={() => setIsProfileOpen(false)}
                 className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-[#0B0F19] transition flex items-center gap-2 text-[#A36361] hover:text-[#A36361]"
               >
                 <LogOut className="w-3.5 h-3.5" />
                 <span>Sign Out</span>
-              </button>
+              </Link>
             </div>
           )}
         </div>
