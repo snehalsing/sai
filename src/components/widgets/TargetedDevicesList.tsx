@@ -25,9 +25,9 @@ const typeIconMap: Record<string, React.ReactNode> = {
 
 export const TargetedDevicesList: React.FC<TargetedDevicesListProps> = ({ devices }) => {
   return (
-    <Card className="flex flex-col justify-between h-full bg-white dark:bg-[#1A1F2B] border-gray-200 dark:border-white/[0.07]">
+    <Card className="flex flex-col h-full bg-white dark:bg-[#1A1F2B] border-gray-200 dark:border-white/[0.07]">
       {/* Header */}
-      <div className="flex items-center justify-between mb-3">
+      <div className="flex items-center justify-between pb-2 border-b border-gray-100 dark:border-white/5">
         <div className="flex items-center gap-2">
           <Server className="w-4 h-4 text-yellow-600 dark:text-[#EECC8C]" />
           <h2 className="text-sm font-semibold text-gray-900 dark:text-white tracking-wide">
@@ -39,8 +39,8 @@ export const TargetedDevicesList: React.FC<TargetedDevicesListProps> = ({ device
         </span>
       </div>
 
-      {/* Devices List */}
-      <div className="space-y-2.5 overflow-y-auto max-h-[340px] pr-1">
+      {/* Middle Scrollable Container: Stacks from top down */}
+      <div className="flex-1 flex flex-col justify-start gap-3 overflow-y-auto py-4 min-h-0 pr-1">
         {devices.map((device) => {
           const isCritical = device.status === 'Critical';
           const isWarning = device.status === 'Warning';
@@ -102,7 +102,7 @@ export const TargetedDevicesList: React.FC<TargetedDevicesListProps> = ({ device
       </div>
 
       {/* Footer */}
-      <div className="pt-3 border-t border-gray-200 dark:border-white/[0.07] flex items-center justify-between text-[11px] text-gray-500 dark:text-gray-400">
+      <div className="border-t border-gray-200 dark:border-white/10 pt-4 flex items-center justify-between text-[11px] text-gray-500 dark:text-gray-400 mt-auto">
         <span>EDR Host Sensor: Active</span>
         <span className="text-[#5F6F65] dark:text-[#BDD1C5] font-mono font-medium">All Healthy</span>
       </div>
